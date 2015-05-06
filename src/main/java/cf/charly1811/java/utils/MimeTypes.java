@@ -163,6 +163,7 @@ public class MimeTypes {
         map.put("fli","video/fli");
         map.put("fli","video/x-fli");
         map.put("flo","image/florian");
+        map.put("flv","video/x-flv");
         map.put("flx","text/vndfmiflexstor");
         map.put("fmf","video/x-atomic3d-feature");
         map.put("for","text/plain");
@@ -576,6 +577,7 @@ public class MimeTypes {
         map.put("wmlc","application/vndwapwmlc");
         map.put("wmls","text/vndwapwmlscript");
         map.put("wmlsc","application/vndwapwmlscriptc");
+        map.put(".wmv","video/x-ms-wmv");
         map.put("word","application/msword");
         map.put("wp","application/wordperfect");
         map.put("wp5","application/wordperfect");
