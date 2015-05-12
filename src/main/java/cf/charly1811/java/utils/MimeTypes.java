@@ -302,6 +302,8 @@ public class MimeTypes {
         map.put("mime","www/mime");
         map.put("mjf","audio/x-vndaudioexplosionmjuicemediafile");
         map.put("mjpg","video/x-motion-jpeg");
+        map.put("mkv","video/x-matroska");
+        map.put("mka","audio/x-matroska");
         map.put("mm","application/x-meme");
         map.put("mme","application/base64");
         map.put("mod","audio/mod");
@@ -595,6 +597,7 @@ public class MimeTypes {
         map.put("wrz","x-world/x-vrml");
         map.put("wsc","text/scriplet");
         map.put("wsrc","application/x-wais-source");
+        map.put("webm","video/webm");
         map.put("wtk","application/x-wintalk");
         map.put("xbm","image/x-xbitmap");
         map.put("xbm","image/x-xbm");
@@ -648,9 +651,34 @@ public class MimeTypes {
      * @param file
      * @return
      */
+     
+     public static String getMimeType(String name) {
+         String extension = getExtension(name);
+         if(extension != null) {
+             String mimeType = map.get(extension);
+             return mimeType != null ? mimeType : "application/octet-stream";
+         }
+         else {
+             return "application/octet-stream";
+         }
+     }
+     
     public static String getExtension(File file)
     {
         String name = file.getName();
+        int i = name.lastIndexOf(".");
+        if(i > 0)
+        {
+            return name.substring(i+1);
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    public static String getExtension(String name)
+    {
         int i = name.lastIndexOf(".");
         if(i > 0)
         {
@@ -681,11 +709,7 @@ public class MimeTypes {
         }
         else
         {
-            return null;
+            return "application/octet-stream";
         }
-    }
-
-    public static String getMimeType(String path) {
-        return getMimeType(new File(path));
     }
 }
