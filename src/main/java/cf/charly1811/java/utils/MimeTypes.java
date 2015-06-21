@@ -19,6 +19,7 @@ package cf.charly1811.java.utils;
 
 import java.io.File;
 import java.lang.String;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -642,16 +643,7 @@ public class MimeTypes {
         map.put("zsh","text/x-scriptzsh");
     }
 
-    /**
-     *  <p>
-     *     Extracts the extension of a file from its name.
-     *     <br>
-     *     If no extension found this method will return null
-     *  </p>
-     * @param file
-     * @return
-     */
-     
+
      public static String getMimeType(String name) {
          String extension = getExtension(name);
          if(extension != null) {
@@ -662,6 +654,10 @@ public class MimeTypes {
              return "application/octet-stream";
          }
      }
+
+    public static String getMimeType(URL url) {
+        return getMimeType(new File(url.getFile()));
+    }
      
     public static String getExtension(File file)
     {
