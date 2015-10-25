@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'cf.charly1811.mimetypes'
+version = '1.0'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+
+repositories {
+	mavenLocal()
+}
+
+uploadArchives {
+
+    repositories {
+
+        mavenDeployer {
+
+            repository(url: repositories.mavenLocal().url)
+
+        }
+
+    }
+
+}
+

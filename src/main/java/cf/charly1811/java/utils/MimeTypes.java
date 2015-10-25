@@ -644,8 +644,8 @@ public class MimeTypes {
     }
 
 
-     public static String getMimeType(String name) {
-         String extension = getExtension(name);
+     public static String getMimeType(String filePath) {
+         String extension = getExtension(filePath);
          if(extension != null) {
              String mimeType = map.get(extension);
              return mimeType != null ? mimeType : "application/octet-stream";
@@ -687,13 +687,22 @@ public class MimeTypes {
     }
 
     /**
+     * Add a new MimeType to the list. </p>
+     * <b>Note:</b> this MimeType will be registered until the application is closed
+     * @param extension
+     * @param mimeType
+     */
+    public void addMimeType(String extension,String mimeType) {
+        map.put(extension,mimeType);
+    }
+
+    /**
      * <p>
      *  Get the MimeType of a file based from its extension.
      *  <br>
-     *  Will return null if no match
      *  </p>
      * @param file
-     * @return
+     * @return the mimetype of the file or the generic extension: (application/octet-stream)
      */
     public static String getMimeType(File file)
     {
